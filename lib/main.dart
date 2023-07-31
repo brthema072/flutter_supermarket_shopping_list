@@ -1,15 +1,17 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_supermarket_shopping_list/pages/cart.dart';
+import 'package:flutter_supermarket_shopping_list/constrollers/route_store.dart';
 import 'package:flutter_supermarket_shopping_list/pages/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  var routeStore = RouteStore();
+
+  MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -21,10 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       home: HomePage(),
       initialRoute: "/home",
-      routes: {
-        "/home": (context) => HomePage(),
-        "/cart": (context) => CartPage(),
-      },
+      routes: routeStore.routers,
     );
   }
 }
