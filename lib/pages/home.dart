@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  test() {
+  updateGroceriesList() {
     setState(() {
       widget.store.splitTextValue(widget.store.textController.text);
     });
@@ -31,8 +31,8 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
-              onPressed: () => test(),
-              child: Text('Confirmar'),
+              onPressed: () => updateGroceriesList(),
+              child: Text('Gerar Lista'),
             ),
           ),
           CustomCheckboxListTile(listItems: widget.store.listItems),
