@@ -3,7 +3,7 @@ import 'package:flutter_supermarket_shopping_list/domain/item.dart';
 
 class TextStore {
   final TextEditingController textController = TextEditingController();
-  final List<Item> listItems = [];
+  List<Item> listItems = [];
 
   TextStore() {
     const String mockValues =
@@ -12,10 +12,15 @@ class TextStore {
   }
 
   splitTextValue(String value) {
+    listItems = [];
     final values = value.split(",");
 
     for (var value in values) {
-      listItems.add(Item(value.trim(), false));
+      addtListItens(value);
     }
+  }
+
+  addtListItens(String value) {
+    listItems.add(Item(value.trim(), false));
   }
 }
