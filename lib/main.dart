@@ -21,8 +21,6 @@ class _MyAppState extends State<MyApp> {
   void _onItemTapped(int index) {
     setState(() {
       navigationStore.indexNavigation = index;
-
-      print(navigationStore.pages.elementAt(navigationStore.indexNavigation));
     });
   }
 
