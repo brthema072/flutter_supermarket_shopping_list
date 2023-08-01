@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_supermarket_shopping_list/constrollers/groceries_itens_store.dart';
 import 'package:flutter_supermarket_shopping_list/constrollers/text_store.dart';
 import 'package:flutter_supermarket_shopping_list/widgets/custom_checkbox_list_tile.dart';
 import 'package:flutter_supermarket_shopping_list/widgets/custom_textfiled.dart';
@@ -14,9 +15,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  updateGroceriesList() {
+  var groceriesStore = GroceriesItensStore();
+
+  updateGroceriesList(GroceriesItensStore groceriesStore) {
     setState(() {
       widget.store.splitTextValue(widget.store.textController.text);
+      groceriesStore.saveItensInLocal(widget.store.listItems);
     });
   }
 
@@ -31,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
-              onPressed: () => updateGroceriesList(),
+              onPressed: () => updateGroceriesList(groceriesStore),
               child: Text('Gerar Lista'),
             ),
           ),
