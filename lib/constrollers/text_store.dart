@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_supermarket_shopping_list/domain/item.dart';
+import 'package:flutter_supermarket_shopping_list/domain/groceries.dart';
 
 class TextStore {
   final TextEditingController textController = TextEditingController();

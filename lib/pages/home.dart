@@ -8,15 +8,15 @@ import 'package:flutter_supermarket_shopping_list/widgets/custom_textfiled.dart'
 
 class HomePage extends StatefulWidget {
   final TextStore store;
-  HomePage({required this.store, super.key});
+  final GroceriesItensStore groceriesItensStore;
+
+  HomePage({required this.store, required this.groceriesItensStore, super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  var groceriesStore = GroceriesItensStore();
-
   updateGroceriesList(GroceriesItensStore groceriesStore) {
     setState(() {
       widget.store.splitTextValue(widget.store.textController.text);
@@ -35,11 +35,13 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
-              onPressed: () => updateGroceriesList(groceriesStore),
+              onPressed: () => updateGroceriesList(widget.groceriesItensStore),
               child: Text('Gerar Lista'),
             ),
           ),
-          CustomCheckboxListTile(listItems: widget.store.listItems),
+          CustomCheckboxListTile(
+              listItems: widget.store.listItems,
+              groceriesItensStore: widget.groceriesItensStore),
         ],
       ),
     );
