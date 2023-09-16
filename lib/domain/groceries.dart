@@ -1,16 +1,16 @@
-class Items {
+class Groceries {
   List<Item> items;
 
-  Items(this.items);
+  Groceries(this.items);
 
-  factory Items.fromJson(Map<String, dynamic> json) {
+  factory Groceries.fromJson(Map<String, dynamic> json) {
     List<Item> items = [];
 
     json["items"].forEach((item) {
       items.add(Item.fromJson(item));
     });
 
-    return Items(items);
+    return Groceries(items);
   }
 
   Map<String, dynamic> toJson() => {"items": items};
